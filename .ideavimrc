@@ -1,0 +1,64 @@
+let mapleader = " "
+set scrolloff=5
+set relativenumber
+set easymotion
+set multiple-cursors
+set surround
+set NERDTree
+set incsearch
+" Config editor
+nnoremap <C-j> :m +1<CR>
+nnoremap <C-k> :m -2<CR>
+vnoremap <C-j> : action MoveLineDown<CR>
+vnoremap <C-k> : action MoveLineUp<CR>
+vnoremap > > gv
+vnoremap < < gv
+vnoremap C c<Esc>
+"Faster window movement
+nnoremap H ^
+nnoremap L $
+nnoremap J 5j
+nnoremap K 5k
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+" Remap vim easymotion
+let g:EasyMotion_do_mapping = 0
+nmap <leader>j <Plug>(easymotion-j)
+nmap <leader>k <Plug>(easymotion-k)
+nmap <leader>w <Plug>(easymotion-w)
+nmap <leader>b <Plug>(easymotion-b)
+nmap <leader>f <Plug>(easymotion-f)
+" Highlight copied text
+set highlightedyank
+let g:highlightedyank_highlight_duration = 700
+let g:highlightedyank_highlight_color = "rgba(193, 227, 206, 0.5)"
+" Commentary plugin
+set commentary
+" Using NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+" Actions for Vim Move Tabs, ....
+nmap <leader>h <action>(PreviousTab)
+nmap <leader>l <action>(NextTab)
+nmap <leader>bd <action>(CloseEditor)
+nmap <leader>i <action>(Generate)
+nmap <leader>s <action>(QuickChangeScheme)
+nmap <leader>/ <action>(ShowErrorDescription)
+nmap <leader>e <action>(GotoNextError)
+nnoremap <leader><leader> <C-Tab>
+"Scrolling
+nmap <leader>d <C-d>
+nmap <leader>u <C-u>
+vmap <leader>d <C-d>
+vmap <leader>u <C-u>
+" Remap multiple cursors
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+nmap <leader><C-n> <Plug>AllWholeOccurrences
+xmap <leader><C-n> <Plug>AllWholeOccurrences
+nmap <leader>g<C-n> <Plug>AllOccurrences
+xmap <leader>g<C-n> <Plug>AllOccurrences
