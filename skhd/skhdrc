@@ -10,6 +10,13 @@ alt + shift - k : yabai -m window --swap north
 alt + shift - h : yabai -m window --swap west
 alt + shift - l : yabai -m window --swap east
 
+# rotate layout clockwise
+shift + alt - r : yabai -m space --rotate 270
+# flip along y-axis
+shift + alt - y : yabai -m space --mirror y-axis
+# flip along x-axis
+shift + alt - x : yabai -m space --mirror x-axis
+
 # resize width window
 cmd + ctrl + alt - j : yabai -m window --resize bottom:0:50; yabai -m window --resize top:0:50
 cmd + ctrl + alt - k : yabai -m window --resize top:0:-50; yabai -m window --resize bottom:0:-50
