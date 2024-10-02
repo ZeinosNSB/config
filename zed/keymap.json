@@ -8,32 +8,36 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "ctrl-w z": "workspace::ToggleZoom",
-      "ctrl-w t": "terminal_panel::ToggleFocus",
+      "z f": "project_search::ToggleFocus",
       "g ]": "editor::GoToDiagnostic",
       "g [": "editor::GoToPrevDiagnostic",
-      "g r": "editor::FindAllReferences",
+      "g n": "pane::ActivateNextItem",
+      "g p": "pane::ActivatePrevItem",
+      "g j": "editor::DuplicateLineDown",
+      "g k": "editor::DuplicateLineUp",
+      "g c c": "editor::ToggleComments",
       "shift-k": "editor::Hover",
       "space l a": "editor::ToggleCodeActions",
       "space l r": "editor::Rename",
       "space l f": "editor::Format",
       "space l l": "diagnostics::Deploy",
-      "g c c": "editor::ToggleComments",
       "space o": "tab_switcher::Toggle",
-      "space e": "workspace::ToggleLeftDock",
+      "space e": "workspace::ToggleRightDock",
+      "space d": "project_panel::ToggleFocus",
       "space p": "outline::Toggle",
       "space v": "editor::GoToDefinitionSplit",
-      "space f": "project_search::ToggleFocus",
-      "space r": "project_panel::ToggleFocus",
-      "space j": ["vim:PushNumber", 5]
+      "space f": "file_finder::Toggle",
+      "space s": "workspace::Save",
+      "space c": ["pane::CloseActiveItem", { "saveIntent": "saveAll" }],
+      "shift-h": "vim::StartOfLine",
+      "shift-l": "vim::EndOfLine"
     }
   },
   {
     "context": "EmptyPane || SharedScreen || vim_operator == none && !VimWaiting && vim_mode != insert",
     "bindings": {
-      "space r t": "task::Spawn",
-      "space r e": "task::Rerun",
-      "space r": "project_panel::ToggleFocus"
+      "space r e": "task::Spawn",
+      "space r t": "task::Rerun"
     }
   },
   {
@@ -46,14 +50,11 @@
     "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
     "bindings": {
       "shift-j": "editor::MoveLineDown",
-      "shift-k": "editor::MoveLineUp"
-    }
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
-      "ctrl-w z": "workspace::ToggleZoom",
-      "ctrl-w t": "terminal_panel::ToggleFocus"
+      "shift-k": "editor::MoveLineUp",
+      "shift-n": "editor::SelectNext",
+      "shift-p": "editor::SelectPrevious",
+      "shift-a": "editor::SelectAllMatches",
+      "shift-m": "editor::SelectAll"
     }
   },
   {
@@ -72,8 +73,8 @@
       "c": "project_panel::Copy",
       "p": "project_panel::Paste",
       "d": "project_panel::Delete",
-      "a": "project_panel::NewFile",
-      "shift-a": "project_panel::NewDirectory",
+      "n": "project_panel::NewFile",
+      "shift-n": "project_panel::NewDirectory",
       "shift-y": "project_panel::CopyRelativePath",
       "g y": "project_panel::CopyPath"
     }
@@ -83,9 +84,7 @@
     "bindings": {
       "cmd-[": "editor::Outdent",
       "cmd-]": "editor::Indent",
-      "cmd-alt-up": "editor::AddSelectionAbove",
       "cmd-ctrl-p": "editor::AddSelectionAbove",
-      "cmd-alt-down": "editor::AddSelectionBelow",
       "cmd-ctrl-n": "editor::AddSelectionBelow",
       "cmd-d": [
         "editor::SelectNext",
@@ -117,8 +116,6 @@
           "advance_downwards": false
         }
       ],
-      "alt-up": "editor::SelectLargerSyntaxNode",
-      "alt-down": "editor::SelectSmallerSyntaxNode",
       "cmd-u": "editor::UndoSelection",
       "cmd-shift-u": "editor::RedoSelection",
       "f8": "editor::GoToDiagnostic",
